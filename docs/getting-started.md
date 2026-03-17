@@ -1,22 +1,22 @@
-<p style="text-align: Left;"><img src="../img/rosa.png" width="350"></p>
+<p style="text-align: Left;"><img src="../img/nex.png" width="350"></p>
 # Getting Started
 
-ROSA is a minimal, high-performance fine-grained reactive runtime built around signals, computed values, and deterministic scheduling. It's designed as a framework-agnostic reactive engine that can power UI frameworks, state managers, and reactive data piplines.
+hog is a minimal, high-performance fine-grained reactive runtime built around signals, computed values, and deterministic scheduling. It's designed as a framework-agnostic reactive engine that can power UI frameworks, state managers, and reactive data piplines.
 
 ## Installation
 
 ```bash
-npm install ROSA
+npm install hog
 # or
-yarn add ROSA
+yarn add hog
 ```
 
 ## Quick Start
 
-The three core primitves in ROSA are **Pulse** (mutable state), **Computed** (derived state), and **Effect** (side effects).
+The three core primitves in hog are **Pulse** (mutable state), **Computed** (derived state), and **Effect** (side effects).
 
 ```ts
-import { PulseNode, ComputedNode, EffectNode } from "ROSA";
+import { PulseNode, ComputedNode, EffectNode } from "hog";
 
 // Create a reactive signal
 const count = new PulseNode(0);
@@ -39,7 +39,7 @@ count.set(5);
 
 ## How It Works
 
-When you call `count.get()` inside a computed or effect, ROSA automatically registers that node as a dependecy. When `count.set()` is called later, ROSA knows exactly which nodes need updating and schedules them through its deterministic scheduler.
+When you call `count.get()` inside a computed or effect, hog automatically registers that node as a dependecy. When `count.set()` is called later, hog knows exactly which nodes need updating and schedules them through its deterministic scheduler.
 
 ```
 PulseNode.set(newValue)
@@ -58,7 +58,7 @@ Only the affected nodes are re-evaluated — no diffing, no virtual DOM, just pr
 Here's a more complete example that demonstrates how pulses, computeds, and effects compose together:
 
 ```ts
-import { PulseNode, ComputedNode, EffectNode } from "ROSA";
+import { PulseNode, ComputedNode, EffectNode } from "hog";
 
 // Reactive state
 const price = new PulseNode(29.99);
@@ -83,7 +83,7 @@ const receipt = new EffectNode(() => {
 quantity.set(5);
 ```
 
-## Next Steps
+## hogt Steps
 
 Now that you have the basics, explore the rest of the documentaton:
 
@@ -91,5 +91,5 @@ Now that you have the basics, explore the rest of the documentaton:
 - [Scheduler](./scheduler.md) — how the deterministic scheduler works
 - [Scopes](./scopes.md) — ownership, cleanup, and algebraic effects
 - [Lanes](./lanes.md) — concurrent execution contexts
-- [React Hooks](./react-hooks.md) — using ROSA with React
+- [React Hooks](./react-hooks.md) — using hog with React
 - [Bridge](./bridge.md) — cross-runtime synchronization via Web Workers

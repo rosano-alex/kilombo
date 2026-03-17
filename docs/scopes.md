@@ -1,13 +1,13 @@
 # Scopes & Algebraic Effects
 
-Scopes provide two key capabilities in ROSA: **ownership** (automatic cleanup of reactive nodes) and **algebraic effects** (a composable error-handling and control-flow mechanism inspired by languages like Koka and OCaml 5).
+Scopes provide two key capabilities in hog: **ownership** (automatic cleanup of reactive nodes) and **algebraic effects** (a composable error-handling and control-flow mechanism inspired by languages like Koka and OCaml 5).
 
 ## Ownership
 
 A `Scope` owns the reactive nodes created within it. When the scope is disposed, all owned nodes are torn down automaticaly — child scopes first, then owned nodes, then cleanup callbacks.
 
 ```ts
-import { Scope, PulseNode, ComputedNode, EffectNode } from "ROSA";
+import { Scope, PulseNode, ComputedNode, EffectNode } from "hog";
 
 const scope = new Scope();
 
@@ -45,7 +45,7 @@ root.dispose();
 The `createScope()` convenience function creates a new scope that is automaticaly a child of the currently active scope (if any):
 
 ```ts
-import { createScope } from "ROSA";
+import { createScope } from "hog";
 
 const root = new Scope();
 root.run(() => {
@@ -72,7 +72,7 @@ scope.run(() => {
 });
 
 // or use the module-level convenience:
-import { onCleanup } from "ROSA";
+import { onCleanup } from "hog";
 
 scope.run(() => {
   const ws = new WebSocket("wss://example.com");
@@ -92,7 +92,7 @@ Algebraic effects let a computation "perform" an operation without knowing how i
 ### Defining Effects
 
 ```ts
-import { defineEffect } from "ROSA";
+import { defineEffect } from "hog";
 
 // Define a custom effect with typed payload and resume value
 const LOG = defineEffect<string, void>("log");
@@ -120,7 +120,7 @@ The handler recieves two arguments: the payload and a `resume` callback. Calling
 ### Performing Effects
 
 ```ts
-import { perform } from "ROSA";
+import { perform } from "hog";
 
 scope.run(() => {
   perform(LOG, "starting computation");
@@ -132,14 +132,14 @@ The runtime walks up the scope tree to find the nearest handler for the given ef
 
 ### Built-in Effects
 
-ROSA provides three built-in effect keys:
+hog provides three built-in effect keys:
 
 #### `ERROR`
 
 Fired when an effect throws. Install a handler to catch errors without crashing the reactive graph:
 
 ```ts
-import { ERROR } from "ROSA";
+import { ERROR } from "hog";
 
 const root = new Scope();
 
@@ -162,7 +162,7 @@ root.run(() => {
 Fired when a scope is about to be disposed. Handlers can perform final cleanup or logging:
 
 ```ts
-import { DISPOSE } from "ROSA";
+import { DISPOSE } from "hog";
 
 scope.handle(DISPOSE, (disposingScope, resume) => {
   console.log("Scope is being disposed, flushing pending writes...");
@@ -176,7 +176,7 @@ scope.handle(DISPOSE, (disposingScope, resume) => {
 Wraps a batch of pulse writes into an atomic unit:
 
 ```ts
-import { TRANSACTION } from "ROSA";
+import { TRANSACTION } from "hog";
 
 scope.handle(TRANSACTION, (fn, resume) => {
   batch(fn);

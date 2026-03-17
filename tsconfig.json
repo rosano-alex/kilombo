@@ -6,10 +6,10 @@
     ],
     "rootDir": ".",
     "paths": {
-      "@ROSA": [
+      "@hog": [
         "./src/index"
       ],
-      "@ROSA/react": [
+      "@hog/react": [
         "./src/react/index"
       ]
     },

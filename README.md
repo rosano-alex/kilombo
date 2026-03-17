@@ -1,10 +1,8 @@
-<p style="text-align: Left;"><img src="img/ROSA.JPG" width="490"></p>
+<p style="text-align: Left;"><img src="img/HOG.png" width="460"></p>
 
- [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE)
+**HOG** is a minimal, high‑performance fine‑grained reactive runtime built around signals, computed values, and deterministic scheduling. It is designed as a framework‑agnostic reactive engine that can power UI frameworks, state managers, and reactive data pipelines.
 
-**ROSA** is a minimal, high‑performance fine‑grained reactive runtime built around signals, computed values, and deterministic scheduling. It is designed as a framework‑agnostic reactive engine that can power UI frameworks, state managers, and reactive data pipelines.
-
-ROSA combines ideas from Solid signals, MobX, Angular Signals, and React scheduler priorities. ROSA uses a small deterministic runtime with priority lanes.
+hog combines ideas from Solid signals, MobX, Angular Signals, and React scheduler priorities. hog uses a small deterministic runtime with priority lanes.
 
 ### High Level Principals
 
@@ -12,9 +10,9 @@ ROSA combines ideas from Solid signals, MobX, Angular Signals, and React schedul
 - **Determinism** - Reactive updates always occur in a predictable order.
 - **Performance** - Fine‑grained dependency tracking ensures minimal work.
 - **Composability** - Signals, computed values, and effects can be combined freely.
-
+kdf
 Most signal systems focus purely on **dependency tracking**.
-ROSA achieves competitive performance because it uses:
+hog achieves competitive performance because it uses:
 
 • Array based observer lists  
 • Lazy computed evaluation  
@@ -46,9 +44,9 @@ ROSA achieves competitive performance because it uses:
 # Installation
 
 ```bash
-npm install ROSA
+npm install hog
 # or
-yarn add ROSA
+yarn add hog
 ```
 
 
@@ -58,7 +56,7 @@ yarn add ROSA
 
 ### Basic Idea
 ```ts
-import { signal, computed, effect } from "ROSA";
+import { signal, computed, effect } from "hog";
 const count = pulse(0);
 const doubled = computed(() => count.get() * 2);
 
@@ -112,14 +110,14 @@ effect(() => {
 
 # Architecture Overview
 
-ROSA builds a **reactive dependency graph**. Only the necessary parts of the graph update.
+hog builds a **reactive dependency graph**. Only the necessary parts of the graph update.
 
 <p style="text-align: Left;"><img src="img/flow.png" width="430"></p>
 
 <br>
 
 # Reactive Nodes (Internal Architecture)
-ROSA's runtime is composed of a small set of primitives.
+hog's runtime is composed of a small set of primitives.
 
 Three node types form the dependency graph:
 
@@ -161,7 +159,7 @@ This forms the reactive graph dynamically.
 
 ## Scheduler
 
-ROSA uses a **deterministic scheduler with priority lanes**.
+hog uses a **deterministic scheduler with priority lanes**.
 
 ```
 SYNC
@@ -236,7 +234,7 @@ Each effect independently subscribes to dependencies.
 
 ## Reactive Data Pipeline
 
-ROSA can also power data flows.
+hog can also power data flows.
 
 ```ts
 const raw = pulse(10);
@@ -253,7 +251,7 @@ effect(() => {
 
 # Project Status
 
-ROSA is currently **early stage**.
+hog is currently **early stage**.
 
 The architecture is stable but internal optimizations will continue to evolve.
 
@@ -262,3 +260,4 @@ The architecture is stable but internal optimizations will continue to evolve.
 # License
 
 MIT
+==~~====-\========================~~==
