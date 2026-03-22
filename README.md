@@ -1,6 +1,6 @@
 <p style="text-align: Left;"><img src="img/new_logo.png" width="300"></p>
 
-**Zo** is a minimal, high‑performance fine‑grained reactive runtime. What sets it apart is its **deterministic microtask scheduler** — instead of flushing updates synchronously, Zo queues reactive work through a priority-lane pipeline (SYNC → USER → TRANSITION → BACKGROUND) and dispatches it via `queueMicrotask`, much like a service worker processes jobs in the background. This keeps the main thread responsive while guaranteeing a stable, predictable update order.
+**Zo** is a minimal, high‑performance fine‑grained reactive runtime. What sets it apart is its **deterministic microtask scheduler** — instead of flushing updates synchronously, Zo queues reactive work through a priority-lane pipeline (SYNC → USER → TRANSITION → BACKGROUND) and dispatches it via `queueMicrotask`, similar to a service worker processes jobs in the background. This keeps the main thread responsive while guaranteeing a stable, predictable update order.
 
 Zo draws from Solid signals, MobX, Angular Signals, and React's scheduler priorities, distilling those ideas into a small, framework‑agnostic reactive engine that can power UI frameworks, state managers, and reactive data pipelines.
 
@@ -222,7 +222,7 @@ effect(() => {
 ---
 
 ## Multiple Effects
-
+ 
 ```ts
 effect(() => console.log("count:", count.get()));
 effect(() => console.log("double:", doubled.get()));
@@ -245,15 +245,6 @@ effect(() => {
   console.log(percent.get() + "%");
 });
 ```
-
----
-
-
-# Project Status
-
-Zo is currently **early stage**.
-
-The architecture is stable but internal optimizations will continue to evolve.
 
 ---
 

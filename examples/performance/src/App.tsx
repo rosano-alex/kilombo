@@ -55,7 +55,7 @@ interface VanillaProps {
 }
 
 // Deterministic color per ticker (stable across renders)
-const STOCK_BG_COLORS = [
+const CRYPTO_BG_COLORS = [
   '#e8e6e1', // warm off-white
   '#a89258', // dark gold
   '#c4a08a', // dusty rose
@@ -68,7 +68,7 @@ const STOCK_BG_COLORS = [
 function tickerBg(ticker: string): string {
   let h = 0;
   for (let i = 0; i < ticker.length; i++) h = ticker.charCodeAt(i) + ((h << 5) - h);
-  return STOCK_BG_COLORS[Math.abs(h) % STOCK_BG_COLORS.length];
+  return CRYPTO_BG_COLORS[Math.abs(h) % CRYPTO_BG_COLORS.length];
 }
 
 // Global render counter — incremented by every stock cell that mounts/updates
