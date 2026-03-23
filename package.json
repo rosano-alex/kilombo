@@ -20,7 +20,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "publish": "git push origin main --tags",
     "dashboard{": "react-scripts start"
   },
   "eslintConfig": {
