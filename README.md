@@ -1,21 +1,21 @@
-<p style="text-align: Left;"><img src="img/kilombo.png" width="350"></p>
+<p style="text-align: Left;"><img src="img/talix.png" width="350"></p>
 
 A minimal, high-performance fine-grained reactive runtime.
 
-kilombo queues reactive work through a priority-lane pipeline (SYNC → USER → TRANSITION → BACKGROUND) and dispatches it via `queueMicrotask`, keeping the main thread responsive while guaranteeing a stable, predictable update order. It draws from Solid, MobX, Angular, and React's scheduler priorities — distilled into a small, framework-agnostic engine.
+Talix queues reactive work through a priority-lane pipeline (SYNC → USER → TRANSITION → BACKGROUND) and dispatches it via `queueMicrotask`, keeping the main thread responsive while guaranteeing a stable, predictable update order. It draws from Solid, MobX, Angular, and React's scheduler priorities — distilled into a small, framework-agnostic engine.
 
 ## Install
 
 ```bash
-npm install kilombo
+npm install talix
 # or
-yarn add kilombo
+yarn add talix
 ```
 
 ## Quick Start
 
 ```ts
-import { pulse, computed, effect } from "kilombo";
+import { pulse, computed, effect } from "talix";
 
 const count = pulse(0);
 const doubled = computed(() => count.get() * 2);
@@ -60,7 +60,7 @@ effect(() => console.log(count.get()));
 
 <p style="text-align: Left;"><img src="img/flow.png" width="430"></p>
 
-kilombo builds a reactive dependency graph from three node types — `PulseNode` (mutable state), `ComputedNode` (derived values), and `EffectNode` (side effects). Dependencies are tracked automatically at read time. When a pulse changes, only the affected subgraph is invalidated and re-evaluated, scheduled through deterministic priority lanes.
+talix builds a reactive dependency graph from three node types — `PulseNode` (mutable state), `ComputedNode` (derived values), and `EffectNode` (side effects). Dependencies are tracked automatically at read time. When a pulse changes, only the affected subgraph is invalidated and re-evaluated, scheduled through deterministic priority lanes.
 
 ## Example: Derived State
 

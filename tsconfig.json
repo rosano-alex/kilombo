@@ -6,10 +6,10 @@
     ],
     "rootDir": ".",
     "paths": {
-      "@kilombo": [
+      "@talix": [
         "./src/index"
       ],
-      "@kilombo/react": [
+      "@talix/react": [
         "./src/react/index"
       ]
     },

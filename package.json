@@ -1,5 +1,5 @@
 {
-  "name": "kilombo",
+  "name": "talix",
   "version": "1.0.11",
   "description": "A minimal, high-performance fine-grained reactive runtime with priority-lane scheduling",
   "main": "dist/index.cjs",
@@ -43,11 +43,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rosano-alex/kilombo.git"
+    "url": "https://github.com/rosano-alex/talix.git"
   },
-  "homepage": "https://github.com/rosano-alex/kilombo#readme",
+  "homepage": "https://github.com/rosano-alex/talix#readme",
   "bugs": {
-    "url": "https://github.com/rosano-alex/kilombo/issues"
+    "url": "https://github.com/rosano-alex/talix/issues"
   },
   "peerDependencies": {
     "react": ">=17.0.0"
